@@ -1,0 +1,27 @@
+{
+  "name": "dal-roti",
+  "version": "1.0.0",
+  "description": "this food ordering web app",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/singhvivekkumar/dal-roti.git"
+  },
+  "author": "Vivek Kumar Singh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/singhvivekkumar/dal-roti/issues"
+  },
+  "homepage": "https://github.com/singhvivekkumar/dal-roti#readme",
+  "devDependencies": {
+    "parcel": "^2.9.1",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
