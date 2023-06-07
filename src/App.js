@@ -1,8 +1,19 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
+import Header from './components/Header';
+import Body from './components/Body';
 
-const heading = React.createElement("h1",{id: "title"}, "Dal roti");
+
+const Applayout = () => {
+	return (
+		<React.Fragment>
+			<Header/>
+			<Body/>
+			{/* <Footer/> */}
+		</React.Fragment>
+	);
+}
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(heading);
+root.render(<Applayout/>);
