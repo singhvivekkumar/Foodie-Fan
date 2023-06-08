@@ -1,5 +1,6 @@
 import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
+import ShimmerUI from "./ShimmerUI";
 
 function fliterData(searchInput, mainData) {
 	const data = mainData.filter((restaurant) => {
@@ -26,7 +27,7 @@ const Body = () => {
 		setFliterRestaurantData(jsonData?.data?.cards[2]?.data?.data?.cards);
 	}
 
-	return (
+	return ( fliterRestaurantData.length === 0)? <ShimmerUI/> : (
 		<div>
 			{/* Search bar */}
 			<div className="search-container p-2 ml-auto border-black">
@@ -44,6 +45,7 @@ const Body = () => {
 
 					onClick={() => {
 						const data = fliterData(searchInput, restaurantData);
+						// (data.length === 0)? :;
 						setFliterRestaurantData(data);
 					}}>Search</button>
 			</div>

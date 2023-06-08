@@ -12,40 +12,11 @@ const RestaurantCard = (props) => {
 		aggregatedDiscountInfo,
 	} = props;
 	return (
-		<div className="md:w-60 shadow-md md:shadow-none py-4 px-4 md:py-2  hover:shadow-xl rounded flex flex-col gap-1 text-[0.7rem] text-[#535665] ">
-			<img
-				src={ IMG_CDN_URL + cloudinaryImageId}
-				alt=""
-				className=" rounded object-cover"
-			/>
-			<div className="res-details px-2">
-				<h4 className="font-medium text-base text-black">{name}</h4>
-				<span className="">{cuisines.join(", ")}</span>
-				<div className="flex justify-between items-center my-2 font-medium">
-					<div className="flex items-center gap-1 px-1 text-white bg-green-500 font-semibold">
-						<span className="text-[0.6rem]">&#9733;</span>
-						<span className="text-[0.6rem]">
-							{avgRating === "--" ? "4.2" : avgRating}
-						</span>
-					</div>
-					<div className="w-[3px] h-[3px] rounded-full bg-black"></div>
-					<span className="">{slaString}</span>
-					{/* <div className="font-light text-xs">
-            {resData.data.cuisines.join(", ")} - {deliveryTime} min
-          </div> */}
-					<div className="res-price">
-						<span className="text-xs">
-							₹{costForTwo / 100} FOR TWO
-						</span>
-					</div>
-				</div>
-				<div className="flex border-t pt-4 gap-2  font-semibold"></div>
-				<span className="text-[#a0522d] text-center">
-					{!aggregatedDiscountInfo?.shortDescriptionList[0]?.meta
-						? "30% off | Use NEWFUD"
-						: aggregatedDiscountInfo?.shortDescriptionList[0]?.meta}
-				</span>
-			</div>
+		<div className=" w-60 m-4 p-2 bg-orange-50 shadow-md border-orange-100 border-solid border-2">
+			<img src={IMG_CDN_URL + cloudinaryImageId} />
+			<h2 className=" font-medium text-xl font-serif">{name}</h2>
+			<h3>{cuisines.join(", ")}</h3>
+			<h4>{avgRating} star </h4>
 		</div>
 	);
 }
