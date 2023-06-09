@@ -28,12 +28,12 @@ const Body = () => {
 	}
 
 	return ( fliterRestaurantData.length === 0)? <ShimmerUI/> : (
-		<div>
+		<div className=" px-10">
 			{/* Search bar */}
-			<div className="search-container p-2 ml-auto border-black">
+			<div className=" flex justify-center mx-28 p-2 m-4 shadow-lg bg-orange-100">
 				<input
-					className="w-64 text-xs border border-gray-300 shadow-md focus:border-gray-500 transition-all duration-300 px-2 py-2 outline-none  rounded"
-					type="text"
+					className="  font-serif text-center text-lg rounded-lg border-orange-400"
+					type="search"
 					placeholder="search"
 					value={searchInput}
 					onChange={(eventProps) => {
@@ -41,33 +41,19 @@ const Body = () => {
 					}}
 				/>
 				<button
-					className="text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700"
-
+					className="font-mono mx-10 text-center text-lg rounded-md bg-orange-400 p-2 text-white hover:shadow-lg hover:bg-orange-600  "
 					onClick={() => {
 						const data = fliterData(searchInput, restaurantData);
-						// (data.length === 0)? :;
 						setFliterRestaurantData(data);
 					}}>Search</button>
 			</div>
 
 			{/* cards */}
-			<div className="flex flex-wrap justify-center">
+			<div className="flex flex-wrap justify-center ">
 				{fliterRestaurantData.map((restaurant) => {
 					return <RestaurantCard {...restaurant.data} key={restaurant.data.id} />
 				})}
 			</div>
-			{/* <div className=" flex flex-wrap justify-center">
-				{fliterRestaurantData.map((restaurants) => {
-					return (
-						<Link
-							to={"restaurant/" + restaurants?.data?.id}
-							key={restaurants.data.id}
-						>
-							<RestaurantCard {...restaurants.data} />
-						</Link>
-					);
-				})}
-			</div> */}
 		</div>
 	);
 };

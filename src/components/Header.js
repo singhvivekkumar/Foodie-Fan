@@ -9,7 +9,7 @@ const Title = () => (
 
 function Header() {
   return (
-    <header className="flex justify-between ">
+    <header className="flex justify-around  px-12">
       <Title />
 
       <div className="">
