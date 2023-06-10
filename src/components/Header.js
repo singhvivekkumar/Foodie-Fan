@@ -3,9 +3,9 @@ import logo from "../assets/swiggy-logo.png";
 import { Link } from "react-router-dom";
 
 const Title = () => (
-  <a href="/">
+  <Link to="/">
     <img className=" h-14 p-2 m-3 " alt="logo" src={logo} />
-  </a>
+  </Link>
 );
 
 function Header() {
@@ -23,19 +23,19 @@ function Header() {
 
       <div className=" font-serif font-bold text-gray-600 text-xl ">
         <ul className=" py-8 ">
-          <li className=" hover:text-orange-400 px-4 fa fa-home "> Home </li>
-          <li className=" hover:text-orange-400 px-4 fa fa-user "> About</li>
-          <li className=" hover:text-orange-400 px-4 fa fa-phone"> Contact</li>
+          <Link to="/"><li className=" hover:text-orange-400 px-4 fa fa-home "> Home </li></Link>
+          <Link to="/about"><li className=" hover:text-orange-400 px-4 fa fa-user "> About</li></Link>
+          <Link to="/contact"><li className=" hover:text-orange-400 px-4 fa fa-phone"> Contact</li></Link>
         </ul>
       </div>
-      <a className="  text-2xl text-center cursor-pointer my-4 py-3">
+      <Link to="/cart" className="  text-2xl text-center cursor-pointer my-4 py-3">
         <i className=" fa fa-shopping-cart hover:text-orange-400" > cart</i>
         {/* <span> cart</span> */}
-      </a>
-      <a className=" text-2xl ">
+      </Link>
+      <Link className=" text-2xl ">
         <i className=" my-4 py-4  fa fa-user-circle-o hover:text-orange-400"> Login</i>
         {/* <span className="">Login</span> */}
-      </a>
+      </Link>
     </header>
   );
 };
