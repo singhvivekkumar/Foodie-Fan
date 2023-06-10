@@ -23,18 +23,24 @@ const Body = () => {
 			`https://www.swiggy.com/dapi/restaurants/list/v5?lat=25.5940499&lng=85.1376051&page_type=DESKTOP_WEB_LISTING`
 		);
 		const jsonData = await urlData.json();
+
+		// test the API 
+		// console.log(jsonData.data.cards)
+		// console.log(jsonData?.data?.cards[2]?.data?.data?.cards)
+
 		setRestaurantData(jsonData?.data?.cards[2]?.data?.data?.cards);
 		setFliterRestaurantData(jsonData?.data?.cards[2]?.data?.data?.cards);
 	}
 
-	return ( fliterRestaurantData.length === 0)? <ShimmerUI/> : (
-		<div className=" px-10">
+	return ( fliterRestaurantData?.length === 0)? <ShimmerUI/> : (
+		<div className=" px-10 pt-4 ">
 			{/* Search bar */}
-			<div className=" flex justify-center mx-28 p-2 m-4 shadow-lg bg-orange-100">
+			<div className=" flex justify-evenly mx-28 p-2 shadow-lg bg-orange-100">
+				<div>
 				<input
-					className="  font-serif text-center text-lg rounded-lg border-orange-400"
+					className=" font-serif text-center p-2 focus:outline-none focus:border-orange-500 focus:ring-orange-500 focus:ring-1 text-lg rounded-lg border-orange-400"
 					type="search"
-					placeholder="search"
+					placeholder="Search Restaurant"
 					value={searchInput}
 					onChange={(eventProps) => {
 						setSearchInput(eventProps.target.value);
@@ -46,12 +52,17 @@ const Body = () => {
 						const data = fliterData(searchInput, restaurantData);
 						setFliterRestaurantData(data);
 					}}>Search</button>
+				</div>
+				<div className=" text-lg font-semibold">
+					<i className=" fa fa-star-half-empty ">4.0 </i>
+					<i className=" fa fa-toggle-on "></i>
+				</div>
 			</div>
 
 			{/* cards */}
 			<div className="flex flex-wrap justify-center ">
-				{fliterRestaurantData.map((restaurant) => {
-					return <RestaurantCard {...restaurant.data} key={restaurant.data.id} />
+				{fliterRestaurantData?.map((restaurant) => {
+					return <RestaurantCard {...restaurant.data} key={restaurant?.data?.id} />
 				})}
 			</div>
 		</div>
