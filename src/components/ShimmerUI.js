@@ -2,11 +2,14 @@ import { Shimmer, Spinner } from "react-shimmer";
 
 const ShimmerUI = () => {
   return (
-    <div className="flex flex-wrap justify-center mt-28 px-10">
+    <div className="flex flex-wrap justify-center mt-8 px-10">
+      <div className=" mx-14 shadow-lg">
+        <Shimmer height={55} width={1240}/>
+      </div>
       {Array(15)
         .fill("")
         .map((e, index) => (
-            <div key={index} className="flex flex-col h-80 w-72 m-4 p-4 border shadow-lg bg-slate-50">
+            <div key={index} className="flex flex-col h-80 w-72 m-4 p-4 shadow-lg bg-slate-100">
               <div className=" border ">
                 <Shimmer height={140} width={255}/>             
               </div>

@@ -24,15 +24,15 @@ const MenuItems = (props) => {
 		<div className=" flex justify-center m-2 p-2">
 			<div className="flex flex-wrap">
 				{(Object.values(menuItem)).map((item) => (
-					<div className=" flex justify-between border-2 m-2 p-2 " key={item.id}>		
-						<span className=" flex flex-col w-80">
-							<div className=" m-1 p-1 text-xl font-serif font-semibold">{item?.name}</div>
+					<div className=" bg-slate-100 flex justify-between shadow-md border m-6 p-2 px-2 " key={item.id}>		
+						<span className=" flex flex-col w-80 text-slate-700">
+							<div className=" m-1 p-1 text-xl font-sans font-semibold">{item?.name}</div>
 							<div className=" flex justify-between m-1 p-1">
 								<span className=" text-md text-left font-medium h-2 px-2">Price per plate :₹{item.price/100}</span>
-								<button className=" border shadow-lg px-2">Add</button>
+								<button className=" bg-blue-300 text-blue-600 shadow-blue-400 border-blue-500 rounded-lg border shadow-md font-mono px-2 hover:bg-green-400 hover:text-gray-500 hover:shadow-green-500 hover:border-green-600">Add</button>
 							</div>
 						</span>
-						<img className=" h-24 w-32" src={IMG_CDN_URL+ ((!item.cloudinaryImageId)? image
+						<img className=" h-24 w-32 rounded-md" src={IMG_CDN_URL+ ((!item.cloudinaryImageId)? image
 : item.cloudinaryImageId)} />
 					</div>
 				))}
