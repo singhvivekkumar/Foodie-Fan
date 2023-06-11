@@ -1,6 +1,7 @@
 import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import ShimmerUI from "./ShimmerUI";
+import { Link } from "react-router-dom";
 
 function fliterData(searchInput, mainData) {
 	const data = mainData.filter((restaurant) => {
@@ -32,26 +33,26 @@ const Body = () => {
 		setFliterRestaurantData(jsonData?.data?.cards[2]?.data?.data?.cards);
 	}
 
-	return ( fliterRestaurantData?.length === 0)? <ShimmerUI/> : (
+	return (fliterRestaurantData?.length === 0) ? <ShimmerUI /> : (
 		<div className=" px-10 pt-4 ">
 			{/* Search bar */}
 			<div className=" flex justify-evenly mx-28 p-2 shadow-lg bg-orange-100">
 				<div>
-				<input
-					className=" font-serif text-center p-2 focus:outline-none focus:border-orange-500 focus:ring-orange-500 focus:ring-1 text-lg rounded-lg border-orange-400"
-					type="search"
-					placeholder="Search Restaurant"
-					value={searchInput}
-					onChange={(eventProps) => {
-						setSearchInput(eventProps.target.value);
-					}}
-				/>
-				<button
-					className="font-mono mx-10 text-center text-lg rounded-md bg-orange-400 p-2 text-white hover:shadow-lg hover:bg-orange-600  "
-					onClick={() => {
-						const data = fliterData(searchInput, restaurantData);
-						setFliterRestaurantData(data);
-					}}>Search</button>
+					<input
+						className=" font-serif text-center p-2 focus:outline-none focus:border-orange-500 focus:ring-orange-500 focus:ring-1 text-lg rounded-lg border-orange-400"
+						type="search"
+						placeholder="Search Restaurant"
+						value={searchInput}
+						onChange={(eventProps) => {
+							setSearchInput(eventProps.target.value);
+						}}
+					/>
+					<button
+						className="font-mono mx-10 text-center text-lg rounded-md bg-orange-400 p-2 text-white hover:shadow-lg hover:bg-orange-600  "
+						onClick={() => {
+							const data = fliterData(searchInput, restaurantData);
+							setFliterRestaurantData(data);
+						}}>Search</button>
 				</div>
 				<div className=" text-lg font-semibold">
 					<i className=" fa fa-star-half-empty ">4.0 </i>
@@ -62,7 +63,11 @@ const Body = () => {
 			{/* cards */}
 			<div className="flex flex-wrap justify-center ">
 				{fliterRestaurantData?.map((restaurant) => {
-					return <RestaurantCard {...restaurant.data} key={restaurant?.data?.id} />
+					return (
+						<Link to={"restaurant/" + restaurant?.data?.id} key={restaurant?.data?.id}>
+							<RestaurantCard {...restaurant.data} />
+						</Link>
+					)
 				})}
 			</div>
 		</div>
