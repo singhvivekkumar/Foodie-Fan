@@ -2,6 +2,7 @@ import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import ShimmerUI from "./ShimmerUI";
 import { Link } from "react-router-dom";
+import useOffline from "../utils/useOffline";
 
 function fliterData(searchInput, mainData) {
 	const data = mainData.filter((restaurant) => {
@@ -32,6 +33,10 @@ const Body = () => {
 		setRestaurantData(jsonData?.data?.cards[2]?.data?.data?.cards);
 		setFliterRestaurantData(jsonData?.data?.cards[2]?.data?.data?.cards);
 	}
+
+  if(useOffline()) {
+    return <h4 className="flex justify-center m-20 p-12" >You are Offline!!!</h4>
+  }
 
 	return (fliterRestaurantData?.length === 0) ? <ShimmerUI /> : (
 		<div className=" px-10 pt-4 ">

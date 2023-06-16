@@ -9,6 +9,12 @@ class ProfileClassCompo extends React.Component {
 		}
 	}
 
+	componentDidMount() {
+		console.log("fetch the API");
+	}
+
+	
+
 	render() {
 		this.setState({
 			userName : this.props.userName,

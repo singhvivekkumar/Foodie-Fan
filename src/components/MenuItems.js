@@ -24,7 +24,7 @@ const MenuItems = (props) => {
 		<div className=" flex justify-center m-2 p-2">
 			<div className="flex flex-wrap">
 				{(Object.values(menuItem)).map((item) => (
-					<div className=" bg-slate-100 flex justify-between drop-shadow-md shadow-md border m-6 p-2 px-2 " key={item.id}>		
+					<div className=" bg-slate-100 flex justify-between drop-shadow-md shadow-md border m-6 p-2 px-2 hover:shadow-orange-300 hover:bg-orange-100 hover:border-orange-200" key={item.id}>		
 						<span className=" flex flex-col w-80 text-slate-700">
 							<div className=" m-1 p-1 text-xl font-sans font-semibold">{item?.name}</div>
 							<div className=" flex justify-between m-1 p-1">

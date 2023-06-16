@@ -9,6 +9,7 @@ import Contact from './components/Contact';
 import About from './components/About';
 import Error from './components/Error';
 import RestaurantMenu from './components/RestaurantMenu';
+import ProfileClassCompo from './components/ProfileClassCompo';
 
 const Applayout = () => {
 	return (
@@ -32,7 +33,13 @@ const appRouter = createBrowserRouter([
 			},
 			{
 				path: "/about",
-				element: <About/>
+				element: <About/>,
+				children: [
+					{
+						path: "profile",
+						element: <ProfileClassCompo/>
+					}
+				]
 			},
 			{
 				path: "/contact",
