@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import logo from "../assets/swiggy-logo.png";
 import { Link } from "react-router-dom";
+import LoginForm from "./LoginForm.js";
 
 const Title = () => (
   <Link to="/">
@@ -9,11 +10,9 @@ const Title = () => (
 );
 
 function Header() {
-  const [isLogin, setIsLogin] = useState('false');
+  const [loginDisplay, setLoginDisplay] = useState("none");
 
-  useEffect( ()=> {
-
-  }, [isLogin]);
+  // useEffect(() => {}, [isLogin]);
 
   return (
     <header className="flex justify-around pt-2 bg-zinc-100 px-12">
@@ -23,21 +22,48 @@ function Header() {
 
       <div className=" font-serif font-bold text-gray-600 text-xl ">
         <ul className=" py-8 ">
-          <Link to="/"><li className=" hover:text-orange-400 px-4 fa fa-home "> Home </li></Link>
-          <Link to="/about"><li className=" hover:text-orange-400 px-4 fa fa-user "> About</li></Link>
-          <Link to="/contact"><li className=" hover:text-orange-400 px-4 fa fa-phone"> Contact</li></Link>
+          <Link to="/">
+            <li className=" hover:text-orange-400 px-4 fa fa-home "> Home </li>
+          </Link>
+          <Link to="/about">
+            <li className=" hover:text-orange-400 px-4 fa fa-user "> About</li>
+          </Link>
+          <Link to="/contact">
+            <li className=" hover:text-orange-400 px-4 fa fa-phone">
+              {" "}
+              Contact
+            </li>
+          </Link>
         </ul>
       </div>
-      <Link to="/cart" className="  text-2xl text-center cursor-pointer my-4 py-3">
-        <i className=" fa fa-shopping-cart hover:text-orange-400" > cart</i>
+
+      <Link
+        to="/cart"
+        className="  text-2xl text-center cursor-pointer my-4 py-3"
+      >
+        <i className=" fa fa-shopping-cart hover:text-orange-400"> cart</i>
         {/* <span> cart</span> */}
       </Link>
-      <Link className=" text-2xl ">
-        <i className=" my-4 py-4  fa fa-user-circle-o hover:text-orange-400"> Login</i>
+
+      <Link className=" text-2xl">
+        <button
+          onClick={() => {
+            setLoginDisplay("");
+            console.log("display")
+          }}
+          className=" my-4 py-4  fa fa-user-circle-o hover:text-orange-400"
+        >
+          {" "}
+          Login
+        </button>
         {/* <span className="">Login</span> */}
       </Link>
+      <div style={{ display: loginDisplay }}>
+        <span className=" cursor-pointer text-6xl my-2 z-50 font-light fixed top-0 right-0" onClick={ ()=> { setLoginDisplay("none")}}>➜</span>
+        <LoginForm />
+      </div>
     </header>
   );
-};
+}
 
 export default Header;
