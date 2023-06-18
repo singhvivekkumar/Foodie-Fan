@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html",
-    "test": "jest"
+    "build": "parcel build dist/index.html",
+    "test": "jest",
+    "analyze": "source-map-explorer dist"
   },
   "repository": {
     "type": "git",
@@ -32,6 +33,7 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.12.1",
     "react-shimmer": "^3.2.0",
+    "source-map-explorer": "^2.5.3",
     "yup": "^1.2.0"
   },
   "browserslist": [

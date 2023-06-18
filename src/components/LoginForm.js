@@ -1,42 +1,46 @@
 import { useState } from "react";
 
 const LoginForm = (props) => {
-
-  const [email, setEmail] = useState("");
+  const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
-  const [userEntry, setUserEntry] = useState([]);
-
-  const submitForm = () => {
-    const newUser = {
-      userEmail: email,
-      userPassword: password
-    };
-    setUserEntry([...userEntry, newUser]);
-    console.log(userEntry);
-  }
+  const [displayNone, setDisplayNone] = useState("block");
 
   return (
-    <div className="fixed right-0 top-0 z-30 border-orange-700 bg-slate-500 border-2 h-screen w-screen opacity-75">
-      <div className=" bg-fuchsia-300 opacity-10 h-screen flex flex-col justify-center w-1/3 float-right">
-        <form action="" onSubmit={submitForm}>
-          <div className="">
-            <label htmlFor="email">Email</label>
+    
+    <div className="fixed right-0 top-0 z-40 border-l shadow-md h-screen w-1/3" style={{display:displayNone}}>
+      <div className=" h-screen p-2 bg-slate-50 flex flex-col justify-center items-center text-xl font-sans">
+        <div className=" relative bottom-24 text-orange-400 text-4xl font-serif font-medium">Login to food</div>
+        <span
+          className=" cursor-pointer text-6xl my-2 z-50 font-light fixed top-0 right-0"
+          onClick={() => {
+            setDisplayNone("none");
+          }}
+        >
+          ➜
+        </span>
+        <div >
+          <div className="m-1 mb-4 p-2">
+            <label className=" text-slate-400 font-semibold text-2xl" htmlFor="text">Username : </label>
             <input
-              className=""
-              name="email"
-              id="email"
-              autoComplete="off"
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              className=" bg-gray-200 p-1 text-gray-500 border-2 rounded-lg shadow-lg focus:outline-none border-slate-400"
+              name="text"
+              autoFocus
+              id="text"
+              autoComplete="off" 
+              placeholder="ABCD"
+              type="text"
+              value={userName}
+              onChange={(e) => setUserName(e.target.value)}
             />
           </div>
 
-          <div>
-            <label htmlFor="password">Password</label>
+          <div className="m-1 p-2">
+            <label className="text-slate-400 me-2 font-semibold text-2xl" htmlFor="password">Password : </label>
             <input
+              className=" bg-gray-200 p-1 shadow-lg text-gray-500 rounded-lg border-2 border-slate-400  focus:outline-none"
               type="password"
               name="password"
+              placeholder="xyz@2023"
               id="password"
               autoComplete="off"
               value={password}
@@ -44,8 +48,16 @@ const LoginForm = (props) => {
             />
           </div>
 
-          <button type="submit">Submit</button>
-        </form>
+          <button
+            className=" relative top-10 left-1/2 m-4 mx-12 p-2 font-semibold rounded-md text-white shadow-lg bg-orange-400 hover:bg-orange-600 "
+            onClick={() => {
+              setDisplayNone("none");
+              props.handleCallBack(displayNone,userName,);
+            }}
+          >
+            Submit
+          </button>
+        </div>
       </div>
     </div>
   );

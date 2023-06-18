@@ -45,7 +45,7 @@ const Body = () => {
   ) : (
     <div className=" px-10 pt-4 ">
       {/* Search bar */}
-      <div className=" sticky top-2 flex justify-evenly  mx-28 p-2 shadow-lg bg-orange-100">
+      <div className=" flex justify-evenly  mx-28 p-2 shadow-lg bg-orange-100">
         <div>
           <input
             className=" font-serif text-center p-2 focus:outline-none focus:border-orange-500 focus:ring-orange-500 focus:ring-1 text-lg rounded-lg border-orange-400"

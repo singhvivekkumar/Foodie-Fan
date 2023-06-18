@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import logo from "../assets/swiggy-logo.png";
 import { Link } from "react-router-dom";
 import LoginForm from "./LoginForm.js";
@@ -11,8 +11,12 @@ const Title = () => (
 
 function Header() {
   const [loginDisplay, setLoginDisplay] = useState("none");
+  const [loginUserName, setLoginUserName] = useState("Login");
 
-  // useEffect(() => {}, [isLogin]);
+  const callBack = (display, loginName) => {
+    setLoginDisplay(display);
+    setLoginUserName(loginName);
+  };
 
   return (
     <header className="flex justify-around pt-2 bg-zinc-100 px-12">
@@ -48,19 +52,17 @@ function Header() {
       <Link className=" text-2xl">
         <button
           onClick={() => {
-            setLoginDisplay("");
-            console.log("display")
+            setLoginDisplay("block");
+            console.log("display");
           }}
           className=" my-4 py-4  fa fa-user-circle-o hover:text-orange-400"
         >
-          {" "}
-          Login
+          {" " + loginUserName}
         </button>
         {/* <span className="">Login</span> */}
       </Link>
-      <div style={{ display: loginDisplay }}>
-        <span className=" cursor-pointer text-6xl my-2 z-50 font-light fixed top-0 right-0" onClick={ ()=> { setLoginDisplay("none")}}>➜</span>
-        <LoginForm />
+      <div style={{ display: loginDisplay, position: "fixed" }}>
+        <LoginForm handleCallBack={callBack}/>
       </div>
     </header>
   );
