@@ -10,6 +10,7 @@ import Error from "./components/Error";
 // import RestaurantMenu from './components/RestaurantMenu';
 import ProfileClassCompo from "./components/ProfileClassCompo";
 import { Shimmer } from "react-shimmer";
+import Cart from "./components/Cart";
 
 const RestaurantMenu = lazy(() => import("./components/RestaurantMenu"));
 const LoginForm = lazy(() => import("./components/LoginForm"));
@@ -49,8 +50,8 @@ const appRouter = createBrowserRouter([
         element: <Contact />,
       },
       {
-        path: "/card",
-        element: <About />,
+        path: "/cart",
+        element: <Cart/>,
       },
       {
         path: "/restaurant/:id",
