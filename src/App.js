@@ -11,17 +11,19 @@ import Error from "./components/Error";
 import ProfileClassCompo from "./components/ProfileClassCompo";
 import { Shimmer } from "react-shimmer";
 import Cart from "./components/Cart";
+import { Provider } from "react-redux";
+import store from "./utils/store";
 
 const RestaurantMenu = lazy(() => import("./components/RestaurantMenu"));
 const LoginForm = lazy(() => import("./components/LoginForm"));
 
 const Applayout = () => {
   return (
-    <React.Fragment>
+    <Provider store={store}>
       <Header />
       <Outlet />
       <Footer />
-    </React.Fragment>
+    </Provider>
   );
 };
 

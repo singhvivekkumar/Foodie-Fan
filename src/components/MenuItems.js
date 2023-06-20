@@ -1,12 +1,20 @@
 import { useState, useEffect } from "react";
 import ShimmerUI from "./ShimmerUI";
 import { IMG_CDN_URL } from "../config";
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/cartSlice";
 
 const MenuItems = (props) => {
 	const { id, image } = props;
 	console.log(id);
-	console.log("this is id ");
+	// console.log("this is id ");
 	const [menuItem, setMenuItem] = useState({});
+
+	const dispatch = useDispatch();
+
+	const handleItem = (item) => {
+		dispatch(addItem(item));
+	}
 
 	useEffect(() => {
 		getMenuItems();
@@ -17,7 +25,7 @@ const MenuItems = (props) => {
 		const jsonData = await data.json();
 		// console.log(jsonData?.data?.menu?.items);
 		setMenuItem(jsonData?.data?.menu?.items);
-		console.log(menuItem);
+		// console.log(menuItem);
 	}
 
 	return ((!menuItem) ? <ShimmerUI /> : (
@@ -29,7 +37,7 @@ const MenuItems = (props) => {
 							<div className=" m-1 p-1 text-xl font-sans font-semibold">{item?.name}</div>
 							<div className=" flex justify-between m-1 p-1">
 								<span className=" text-md text-left font-medium h-2 px-2">Price per plate :₹{item.price/100}</span>
-								<button className=" bg-blue-300 text-blue-600 shadow-blue-400 border-blue-500 rounded-lg border shadow-md font-mono px-2 hover:bg-green-400 hover:text-gray-500 hover:shadow-green-500 hover:border-green-600">Add</button>
+								<button onClick={() => handleItem(item)} className=" bg-blue-300 text-blue-600 shadow-blue-400 border-blue-500 rounded-lg border shadow-md font-mono px-2 hover:bg-green-400 hover:text-gray-500 hover:shadow-green-500 hover:border-green-600">Add</button>
 							</div>
 						</span>
 						<img className=" h-24 w-32 rounded-md" src={IMG_CDN_URL+ ((!item.cloudinaryImageId)? image

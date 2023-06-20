@@ -1,99 +1,30 @@
-import { useState } from "react";
-
-const Section = ({ title, discription, isVisible, setIsVisible }) => {
-  const [visible, setVisible] = useState(isVisible);
-  return (
-    <div className=" mx-10 m-1 p-2 border-2 border-black">
-      <h2 className=" text-xl border-2 font-semibold px-11 m-2 border-black">{title}</h2>
-      {visible?<button className=" border-2 p-1 border-blue-500" onClick={()=>setVisible(false)}>hide</button> : <button className=" border-2 p-1 border-blue-500" onClick={ ()=>{setVisible(true); setIsVisible} }>show</button>}
-      
-      {visible && <p className=" m-1 p-1 ">{discription}</p>}
-    </div>
-  );
-};
+import { useSelector } from "react-redux";
+import { IMG_CDN_URL } from "../config";
 
 const Cart = () => {
-  const [sectionConfig, setSectionConfig] = useState({
-    showAbout: true,
-    showTeam: false,
-    showDetails: false,
-    showProduct: false,
-    showCareer: false,
-  });
+
+  const cartItems = useSelector( (store) => store.cart.items);
 
   return (
-    <div className=" flex flex-col ">
-      <h1 className=" m-8 px-16 text-2xl font-semibold">Instamart</h1>
-      <Section
-        title="About Instamart"
-        isVisible={sectionConfig.showAbout}
-        setIsVisible={() => {
-          setSectionConfig({
-            showAbout: true,
-            showTeam: false,
-            showDetails: false,
-            showProduct: false,
-            showCareer: false,
-          });
-        }}
-        discription="On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains."
-      />
-      <Section
-        title="Team Instamart"
-        isVisible={sectionConfig.showTeam}
-        setIsVisible={() => {
-          setSectionConfig({
-            showAbout: false,
-            showTeam: true,
-            showDetails: false,
-            showProduct: false,
-            showCareer: false,
-          });
-        }}
-        discription="On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains."
-      />
-      <Section
-        title="Details Instamart"
-        isVisible={sectionConfig.showDetails}
-        setIsVisible={() => {
-          setSectionConfig({
-            showAbout: false,
-            showTeam: false,
-            showDetails: true,
-            showProduct: false,
-            showCareer: false,
-          });
-        }}
-        discription="On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains."
-      />
-      <Section
-        title="Product Instamart"
-        isVisible={sectionConfig.showProduct}
-        setIsVisible={() => {
-          setSectionConfig({
-            showAbout: false,
-            showTeam: false,
-            showDetails: false,
-            showProduct: true,
-            showCareer: false,
-          });
-        }}
-        discription="On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains."
-      />
-      <Section
-        title="Career Instamart"
-        isVisible={sectionConfig.showCareer}
-        setIsVisible={() => {
-          setSectionConfig({
-            showAbout: false,
-            showTeam: false,
-            showDetails: false,
-            showProduct: false,
-            showCareer: true,
-          });
-        }}
-        discription="On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains."
-      />
+    !cartItems? <div>not add till now</div> :<div className=" flex ">
+      <div className=" text-4xl font-sans font-semibold p-2 m-2" >Cart Information</div>
+      <div>
+        {
+          cartItems.map( (item) => {
+            console.log(item.name);
+            return(<div className=" bg-slate-100 flex justify-between drop-shadow-md shadow-md border m-6 p-2 px-2 hover:shadow-orange-300 hover:bg-orange-100 hover:border-orange-200" key={item.id}>		
+						<span className=" flex flex-col w-80 text-slate-700">
+							<div className=" m-1 p-1 text-xl font-sans font-semibold">{item?.name}</div>
+							<div className=" flex justify-between m-1 p-1">
+								<span className=" text-md text-left font-medium h-2 px-2">Price per plate :₹{item.price/100}</span>
+								<button className=" bg-blue-300 text-blue-600 shadow-blue-400 border-blue-500 rounded-lg border shadow-md font-mono px-2 hover:bg-green-400 hover:text-gray-500 hover:shadow-green-500 hover:border-green-600">Remove</button>
+							</div>
+						</span>
+						<img className=" h-24 w-32 rounded-md" src= {IMG_CDN_URL + item.cloudinaryImageId} />
+					</div>)
+          })
+        }
+      </div>
     </div>
   );
 };

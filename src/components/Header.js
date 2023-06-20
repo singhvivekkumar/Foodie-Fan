@@ -2,6 +2,8 @@ import { useState } from "react";
 import logo from "../assets/swiggy-logo.png";
 import { Link } from "react-router-dom";
 import LoginForm from "./LoginForm.js";
+import { useSelector } from "react-redux";
+import store from "../utils/store";
 
 const Title = () => (
   <Link to="/">
@@ -13,10 +15,13 @@ function Header() {
   const [loginDisplay, setLoginDisplay] = useState("none");
   const [loginUserName, setLoginUserName] = useState("Login");
 
+  const cartItem = useSelector((store) => store.cart.items)
+
   const callBack = (display, loginName) => {
     setLoginDisplay(display);
     setLoginUserName(loginName);
   };
+  // console.log(cartItem);
 
   return (
     <header className="flex justify-around pt-2 bg-zinc-100 px-12">
@@ -45,7 +50,7 @@ function Header() {
         to="/cart"
         className="  text-2xl text-center cursor-pointer my-4 py-3"
       >
-        <i className=" fa fa-shopping-cart hover:text-orange-400"> cart</i>
+        <i className=" fa fa-shopping-cart hover:text-orange-400"> cart - {cartItem.length}</i>
         {/* <span> cart</span> */}
       </Link>
 
