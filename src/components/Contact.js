@@ -1,99 +1,148 @@
-import { useState } from "react";
-
-const Section = ({ title, discription, isVisible, setIsVisible }) => {
-  return (
-    <div className=" mx-10 m-1 p-2 border-2 border-black">
-      <h2 className=" text-xl border-2 font-semibold px-11 m-2 border-black">{title}</h2>
-      {isVisible?<button className=" border-2 p-1 border-blue-500">hide</button> : <button className=" border-2 p-1 border-blue-500" onClick={ ()=> setIsVisible }>show</button>}
-      
-      {isVisible && <p className=" m-1 p-1 ">{discription}</p>}
-    </div>
-  );
-};
-
 const Contact = () => {
-  const [sectionConfig, setSectionConfig] = useState({
-    showAbout: true,
-    showTeam: false,
-    showDetails: false,
-    showProduct: false,
-    showCareer: false,
-  });
-
   return (
-    <div className=" flex flex-col ">
-      <h1 className=" m-8 px-16 text-2xl font-semibold">Instamart</h1>
-      <Section
-        title="About Instamart"
-        isVisible={sectionConfig.showAbout}
-        setIsVisible={() => {
-          setSectionConfig({
-            showAbout: true,
-            showTeam: false,
-            showDetails: false,
-            showProduct: false,
-            showCareer: false,
-          });
-        }}
-        discription="On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains."
-      />
-      <Section
-        title="Team Instamart"
-        isVisible={sectionConfig.showTeam}
-        setIsVisible={() => {
-          setSectionConfig({
-            showAbout: false,
-            showTeam: true,
-            showDetails: false,
-            showProduct: false,
-            showCareer: false,
-          });
-        }}
-        discription="On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains."
-      />
-      <Section
-        title="Details Instamart"
-        isVisible={sectionConfig.showDetails}
-        setIsVisible={() => {
-          setSectionConfig({
-            showAbout: false,
-            showTeam: false,
-            showDetails: true,
-            showProduct: false,
-            showCareer: false,
-          });
-        }}
-        discription="On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains."
-      />
-      <Section
-        title="Product Instamart"
-        isVisible={sectionConfig.showProduct}
-        setIsVisible={() => {
-          setSectionConfig({
-            showAbout: false,
-            showTeam: false,
-            showDetails: false,
-            showProduct: true,
-            showCareer: false,
-          });
-        }}
-        discription="On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains."
-      />
-      <Section
-        title="Career Instamart"
-        isVisible={sectionConfig.showCareer}
-        setIsVisible={() => {
-          setSectionConfig({
-            showAbout: false,
-            showTeam: false,
-            showDetails: false,
-            showProduct: false,
-            showCareer: true,
-          });
-        }}
-        discription="On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains."
-      />
-    </div>
+    <section class="bg-gray-200">
+      <div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
+          <div class="lg:col-span-2 lg:py-12">
+            <p class="max-w-xl text-lg">
+              At the same time, the fact that we are wholly owned and totally
+              independent from manufacturer and other group control gives you
+              confidence that we will only recommend what is right for you.
+            </p>
+
+            <div class="mt-8">
+              <a href="" class="text-2xl font-bold text-pink-600">
+                0151 475 4450
+              </a>
+
+              <address class="mt-2 not-italic">
+                282 Kevin Brook, Imogeneborough, CA 58517
+              </address>
+            </div>
+          </div>
+
+          <div class="rounded-lg bg-white p-8 shadow-lg lg:col-span-3 lg:p-12">
+            <form action="" class="space-y-4">
+              <div>
+                <label class="sr-only" for="name">
+                  Name
+                </label>
+                <input
+                  class="w-full rounded-lg border-gray-200 p-3 text-sm"
+                  placeholder="Name"
+                  type="text"
+                  id="name"
+                />
+              </div>
+
+              <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                <div>
+                  <label class="sr-only" for="email">
+                    Email
+                  </label>
+                  <input
+                    class="w-full rounded-lg border-gray-200 p-3 text-sm"
+                    placeholder="Email address"
+                    type="email"
+                    id="email"
+                  />
+                </div>
+
+                <div>
+                  <label class="sr-only" for="phone">
+                    Phone
+                  </label>
+                  <input
+                    class="w-full rounded-lg border-gray-200 p-3 text-sm"
+                    placeholder="Phone Number"
+                    type="tel"
+                    id="phone"
+                  />
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 gap-4 text-center sm:grid-cols-3">
+                <div>
+                  <input
+                    class="peer sr-only"
+                    id="option1"
+                    type="radio"
+                    tabindex="-1"
+                    name="option"
+                  />
+
+                  <label
+                    for="option1"
+                    class="block w-full rounded-lg border border-gray-200 p-3 hover:border-black peer-checked:border-black peer-checked:bg-black peer-checked:text-white"
+                    tabindex="0"
+                  >
+                    <span class="text-sm font-medium"> Option 1 </span>
+                  </label>
+                </div>
+
+                <div>
+                  <input
+                    class="peer sr-only"
+                    id="option2"
+                    type="radio"
+                    tabindex="-1"
+                    name="option"
+                  />
+
+                  <label
+                    for="option2"
+                    class="block w-full rounded-lg border border-gray-200 p-3 hover:border-black peer-checked:border-black peer-checked:bg-black peer-checked:text-white"
+                    tabindex="0"
+                  >
+                    <span class="text-sm font-medium"> Option 2 </span>
+                  </label>
+                </div>
+
+                <div>
+                  <input
+                    class="peer sr-only"
+                    id="option3"
+                    type="radio"
+                    tabindex="-1"
+                    name="option"
+                  />
+
+                  <label
+                    for="option3"
+                    class="block w-full rounded-lg border border-gray-200 p-3 hover:border-black peer-checked:border-black peer-checked:bg-black peer-checked:text-white"
+                    tabindex="0"
+                  >
+                    <span class="text-sm font-medium"> Option 3 </span>
+                  </label>
+                </div>
+              </div>
+
+              <div>
+                <label class="sr-only" for="message">
+                  Message
+                </label>
+
+                <textarea
+                  class="w-full rounded-lg border-gray-200 p-3 text-sm"
+                  placeholder="Message"
+                  rows="8"
+                  id="message"
+                ></textarea>
+              </div>
+
+              <div class="mt-4">
+                <button
+                  type="submit"
+                  class="inline-block w-full rounded-lg bg-black px-5 py-3 font-medium text-white sm:w-auto"
+                >
+                  Send Enquiry
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
 
