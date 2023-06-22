@@ -13,6 +13,7 @@ import { Shimmer } from "react-shimmer";
 import Cart from "./components/Cart";
 import { Provider } from "react-redux";
 import store from "./utils/store";
+import "font-awesome/css/font-awesome.min.css";
 
 const RestaurantMenu = lazy(() => import("./components/RestaurantMenu"));
 const LoginForm = lazy(() => import("./components/LoginForm"));

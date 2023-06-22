@@ -7,7 +7,7 @@ import store from "../utils/store";
 
 const Title = () => (
   <Link to="/">
-    <img className=" h-14 p-2 m-3 " alt="logo" src={logo} />
+    <img data-testid="logo" className=" h-14 p-2 m-3 " alt="logo" src={logo} />
   </Link>
 );
 
@@ -50,7 +50,7 @@ function Header() {
         to="/cart"
         className="  text-2xl text-center cursor-pointer my-4 py-3"
       >
-        <i className=" fa fa-shopping-cart hover:text-orange-400"> cart - {cartItem.length}</i>
+        <i data-testid="cartTest" className=" fa fa-shopping-cart hover:text-orange-400"> cart - {cartItem.length}</i>
         {/* <span> cart</span> */}
       </Link>
 

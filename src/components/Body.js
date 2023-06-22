@@ -48,6 +48,7 @@ const Body = () => {
       <div className=" flex justify-evenly  mx-28 p-2 shadow-lg bg-orange-100">
         <div>
           <input
+            data-testid="search-input"
             className=" font-serif text-center p-2 focus:outline-none focus:border-orange-500 focus:ring-orange-500 focus:ring-1 text-lg rounded-lg border-orange-400"
             type="search"
             placeholder="Search Restaurant"
@@ -57,6 +58,7 @@ const Body = () => {
             }}
           />
           <button
+            data-testid="search-btn"
             className="font-mono mx-10 text-center text-lg rounded-md bg-orange-400 p-2 text-white hover:shadow-lg hover:bg-orange-600  "
             onClick={() => {
               const data = fliterData(searchInput, restaurantData);
@@ -73,7 +75,7 @@ const Body = () => {
       </div>
 
       {/* cards */}
-      <div className="flex flex-wrap justify-center ">
+      <div className="flex flex-wrap justify-center " data-testid="restaurant-list">
         {fliterRestaurantData?.map((restaurant) => {
           return (
             <Link

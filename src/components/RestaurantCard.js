@@ -1,5 +1,4 @@
 import { IMG_CDN_URL } from "../config";
-import "font-awesome/css/font-awesome.min.css";
 
 const RestaurantCard = (props) => {
   
