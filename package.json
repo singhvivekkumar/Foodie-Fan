@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build dist/index.html",
+    "build": "parcel build index.html",
     "test": "jest",
     "analyze": "source-map-explorer dist",
     "watch-test": "jest --watch"
