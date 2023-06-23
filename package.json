@@ -2,10 +2,9 @@
   "name": "dal-roti",
   "version": "1.0.0",
   "description": "this food ordering web app",
-  "main": "index.js",
   "scripts": {
     "start": "parcel index.html",
-    "build": "build index.html",
+    "build": "parcel build index.html",
     "test": "jest",
     "analyze": "source-map-explorer dist",
     "watch-test": "jest --watch"
