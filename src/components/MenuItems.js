@@ -23,7 +23,7 @@ const MenuItems = (props) => {
 
   async function getMenuItems() {
     const data = await fetch(
-      `https://www.swiggy.com/dapi/menu/quick?menuId=${id}&categories=true`
+      `https://www.swiggy.com/dapi/menu/quick?menuId=${id}&categories=true`, {mode:'cors'}
     );
     const jsonData = await data.json();
     // console.log(jsonData?.data?.menu?.items);

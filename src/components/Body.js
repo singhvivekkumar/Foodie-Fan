@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import ShimmerUI from "./ShimmerUI";
 import { Link } from "react-router-dom";
 import useOffline from "../utils/useOffline";
+import { RESTAURANT_CARDS_URL } from "../config";
+import Carousel from "./Carousel";
 
 function fliterData(searchInput, mainData) {
   const data = mainData.filter((restaurant) => {
@@ -14,22 +16,18 @@ function fliterData(searchInput, mainData) {
 const Body = () => {
   const [restaurantData, setRestaurantData] = useState([]);
   const [fliterRestaurantData, setFliterRestaurantData] = useState([]);
-  const [searchInput, setSearchInput] = useState();
+  const [searchInput, setSearchInput] = useState("");
 
   useEffect(() => {
     getRestaurant();
   }, []);
 
   async function getRestaurant() {
-    let urlData = await fetch(
-      `https://www.swiggy.com/dapi/restaurants/list/v5?lat=25.5940499&lng=85.1376051&page_type=DESKTOP_WEB_LISTING`
-    );
+    let urlData = await fetch(RESTAURANT_CARDS_URL);
     const jsonData = await urlData.json();
 
     // test the API
-    // console.log(jsonData.data.cards)
     // console.log(jsonData?.data?.cards[2]?.data?.data?.cards)
-
     setRestaurantData(jsonData?.data?.cards[2]?.data?.data?.cards);
     setFliterRestaurantData(jsonData?.data?.cards[2]?.data?.data?.cards);
   }
@@ -43,6 +41,8 @@ const Body = () => {
   return fliterRestaurantData?.length === 0 ? (
     <ShimmerUI />
   ) : (
+    <>
+    <Carousel/>
     <div className=" px-10 pt-4 ">
       {/* Search bar */}
       <div className=" flex justify-evenly  mx-28 p-2 shadow-lg bg-orange-100">
@@ -70,7 +70,7 @@ const Body = () => {
         </div>
         <div className=" text-lg font-semibold">
           <i className=" fa fa-star-half-empty ">4.0 </i>
-          <i className=" fa fa-toggle-on "></i>
+          <i className=" fa fa-toggle-on p-2 px-4"></i>
         </div>
       </div>
 
@@ -88,6 +88,7 @@ const Body = () => {
         })}
       </div>
     </div>
+    </>
   );
 };
 

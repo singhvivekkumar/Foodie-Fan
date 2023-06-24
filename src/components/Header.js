@@ -1,5 +1,5 @@
 import { useState } from "react";
-import logo from "../assets/swiggy-logo.png";
+import logo from "../assets/logodelivery.png";
 import { Link } from "react-router-dom";
 import LoginForm from "./LoginForm.js";
 import { useSelector } from "react-redux";
@@ -7,7 +7,7 @@ import store from "../utils/store";
 
 const Title = () => (
   <Link to="/">
-    <img data-testid="logo" className=" h-14 p-2 m-3 " alt="logo" src={logo} />
+    <img data-testid="logo" className=" h-16 p-2 m-2  " alt="logo" src={logo} />
   </Link>
 );
 
@@ -24,12 +24,12 @@ function Header() {
   // console.log(cartItem);
 
   return (
-    <header className="flex justify-around pt-2 bg-zinc-100 px-12">
+    <header className="flex justify-around pt-2 bg-slate-200 px-12">
       <div>
         <Title />
       </div>
 
-      <div className=" font-serif font-bold text-gray-600 text-xl ">
+      <div className=" font-serif font-bold text-gray-700 text-xl ">
         <ul className=" py-8 ">
           <Link to="/">
             <li className=" hover:text-orange-400 px-4 fa fa-home "> Home </li>
