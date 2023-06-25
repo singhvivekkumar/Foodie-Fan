@@ -1,9 +1,9 @@
 import { useState } from "react";
 import logo from "../assets/logodelivery.png";
 import { Link } from "react-router-dom";
-import LoginForm from "./LoginForm.js";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import store from "../utils/store";
+import { toggleLogin } from "../utils/overlaySlice";
 
 const Title = () => (
   <Link to="/">
@@ -12,17 +12,14 @@ const Title = () => (
 );
 
 function Header() {
-  const [loginDisplay, setLoginDisplay] = useState("none");
-  const [loginUserName, setLoginUserName] = useState("Login");
-
+  
   const cartItem = useSelector((store) => store.cart.items)
 
-  const callBack = (display, loginName) => {
-    setLoginDisplay(display);
-    setLoginUserName(loginName);
-  };
-  // console.log(cartItem);
-
+  const dispatch =useDispatch();
+  const handleLoginPage = () => {
+    dispatch(toggleLogin());
+  }
+  
   return (
     <header className="flex justify-around pt-2 bg-slate-200 px-12">
       <div>
@@ -56,19 +53,11 @@ function Header() {
 
       <Link className=" text-2xl">
         <button
-          onClick={() => {
-            setLoginDisplay("block");
-            console.log("display");
-          }}
+          onClick={() => {handleLoginPage}}
           className=" my-4 py-4  fa fa-user-circle-o hover:text-orange-400"
         >
-          {" " + loginUserName}
         </button>
-        {/* <span className="">Login</span> */}
       </Link>
-      <div style={{ display: loginDisplay, position: "fixed" }}>
-        <LoginForm handleCallBack={callBack}/>
-      </div>
     </header>
   );
 }

@@ -32,7 +32,7 @@ const Carousel = () => {
         </div>
         <div className=" absolute top-36 left-14 text-slate-300 text-5xl ">
           <i onClick={()=> {
-            if (carouselStart < 0) {
+            if (carouselStart < 1) {
               return null;
             };
             setCarouselEnd(carouselEnd-1);
