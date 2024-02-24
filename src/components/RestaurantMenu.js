@@ -16,7 +16,7 @@ const RestaurantMenu = () => {
 	async function getRestaurantDetails() {
 		const data = await fetch(`https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=25.5940499&lng=85.1376051&restaurantId=${id}&submitAction=ENTER`, {mode:'cors'});
 		const jsonData = await data.json();
-		setRestaurant(jsonData?.data?.cards[0]?.card?.card.info);
+		setRestaurant(jsonData?.data?.cards[2]?.card?.card.info);
 		// setItemData(jsonData?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
 	}
 
